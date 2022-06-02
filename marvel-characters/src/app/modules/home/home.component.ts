@@ -1,6 +1,10 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from './../../services/home/home.service';
-import { Characters } from 'src/app/models/characters';
+
+
+import { Characters } from './../../models/characters';
+import { Creators } from './../../models/creators';
 
 @Component({
   selector: 'app-home',
@@ -9,20 +13,14 @@ import { Characters } from 'src/app/models/characters';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private homeS: HomeService) { }
+  public creatorObs$: Observable<Creators[]>;
+  public charactersObs$: Observable<Characters[]>;
 
-  ngOnInit() {
-    this.homeS
-    .getCharacters()
-    .subscribe({
-        next: (characters: Characters[]) => {
-          console.log(characters);
-        },
-        error: (e) => {
-          console.error(e)
-        }
-    });
-
+  constructor(private homeS: HomeService) {
+    this.creatorObs$ = this.homeS.getCreators();
+    this.charactersObs$ = this.homeS.getCharacters();
   }
+
+  ngOnInit() {  }
 
 }

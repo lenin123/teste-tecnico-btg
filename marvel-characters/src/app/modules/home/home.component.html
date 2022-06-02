@@ -1,3 +1,43 @@
-<p>
-  home works!
-</p>
+<div class="container-home">
+  <div class="title-container-home">
+    Home
+    <hr />
+  </div>
+  <div class="banner">
+
+  </div>
+  <div class="container-characters-home" *ngIf="charactersObs$ | async as characters">
+    <div class="title-container-characters">
+      List of Characters
+      <hr />
+    </div>
+    <div class="cards" *ngFor="let character of characters">
+      <div class="img-card">
+        <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="">
+      </div>
+      <div class="title">
+        {{character.name}}
+      </div>
+    </div>
+    <div class="btn-content">
+      <a [routerLink]="'/characters'" [routerLinkActive]="'is-active'">Veja Mais</a>
+    </div>
+  </div>
+  <div class="container-creators-home" *ngIf="creatorObs$ | async as creators">
+    <div class="title-container-creators">
+      List of Creators
+      <hr />
+    </div>
+    <div class="cards" *ngFor="let creator of creators">
+      <div class="img-card">
+        <img src="{{creator.thumbnail.path}}.{{creator.thumbnail.extension}}" alt="">
+      </div>
+      <div class="title">
+        {{creator.firstName}}
+      </div>
+    </div>
+    <div class="btn-content">
+      <a [routerLink]="'/creators'" [routerLinkActive]="'is-active'">Veja Mais</a>
+    </div>
+  </div>
+</div>
