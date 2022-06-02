@@ -1,0 +1,46 @@
+.container-characters {
+  float: left;
+  width: 100%;
+
+  .title-container-characters {
+    float: left;
+    width: 98%;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 15px 15px 50px 15px;
+
+    hr {
+      position: absolute;
+      width: 20%;
+      left: 25px;
+      color: #000;
+      border: 1px solid #000;
+    }
+  }
+
+  .cards {
+    float: left;
+    width: 23%;
+    min-height: 350px;
+    margin: 8px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 75%);
+
+    .img-card {
+      float: left;
+      width: 100%;
+
+      img {
+        width: 100%;
+        min-height: 200px;
+        max-height: 200px;
+      }
+    }
+
+    .title {
+      float: left;
+      width: 100%;
+    }
+  }
+}

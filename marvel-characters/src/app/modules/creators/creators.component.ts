@@ -1,4 +1,7 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+import { CreatorsService } from './../../services/creators/creators.service';
+import { Creators } from './../../models/creators';
 
 @Component({
   selector: 'app-creators',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatorsComponent implements OnInit {
 
-  constructor() { }
+  public creatorObs$: Observable<Creators[]>;
 
-  ngOnInit() {
+  constructor(private creatorsS: CreatorsService) {
+    this.creatorObs$ = this.creatorsS.getCreators();
   }
+
+  ngOnInit() {  }
 
 }

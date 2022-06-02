@@ -1,4 +1,7 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+import { CharactersService } from './../../services/characters/characters.service';
+import { Characters } from 'src/app/models/characters';
 
 @Component({
   selector: 'app-characters',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharactersComponent implements OnInit {
 
-  constructor() { }
+  public charactersObs$: Observable<Characters[]>;
 
-  ngOnInit() {
+  constructor(private charactersS: CharactersService) {
+    this.charactersObs$ = this.charactersS.getCharacters();
   }
+
+  ngOnInit() {  }
 
 }
