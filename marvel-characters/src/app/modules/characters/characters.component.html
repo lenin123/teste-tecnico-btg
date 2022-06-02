@@ -1,3 +1,14 @@
-<p>
-  characters works!
-</p>
+<div class="container-characters" *ngIf="charactersObs$ | async as characters">
+  <div class="title-container-characters">
+    List of Characters
+    <hr />
+  </div>
+  <div class="cards" *ngFor="let character of characters">
+    <div class="img-card">
+      <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="">
+    </div>
+    <div class="title">
+      {{character.name}}
+    </div>
+  </div>
+</div>
