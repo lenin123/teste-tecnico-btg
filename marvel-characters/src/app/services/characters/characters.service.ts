@@ -15,7 +15,7 @@ export class CharactersService {
   constructor(private http: HttpClient) {  }
 
   getCharacters(): Observable<Characters[]> {
-    return this.http.get(`${this._url}&limit=10`, {
+    return this.http.get(`${this._url}&limit=20`, {
       headers: new HttpHeaders()
     }).pipe(map((resp: any) => (resp?.data?.results) ));
   }
