@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CreatorsService } from './../../services/creators/creators.service';
+import { Creators } from './../../models/creators';
 
 @Component({
   selector: 'app-creators',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatorsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private creatorsS: CreatorsService) { }
 
   ngOnInit() {
+    this.creatorsS
+    .getCreators()
+    .subscribe({
+        next: (creatorss: Creators[]) => {
+          console.log(creatorss);
+        },
+        error: (e) => {
+          console.error(e)
+        }
+    });
   }
 
 }
