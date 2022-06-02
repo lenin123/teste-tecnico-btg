@@ -4,6 +4,9 @@
     <hr />
   </div>
   <div class="cards" *ngFor="let creator of creators">
+    <div class="img-card">
+      <img src="{{creator.thumbnail.path}}.{{creator.thumbnail.extension}}" alt="">
+    </div>
     <div class="title">
       {{creator.firstName}}
     </div>
