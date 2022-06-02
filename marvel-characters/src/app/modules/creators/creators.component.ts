@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { CreatorsService } from './../../services/creators/creators.service';
 import { Creators } from './../../models/creators';
@@ -9,19 +10,12 @@ import { Creators } from './../../models/creators';
 })
 export class CreatorsComponent implements OnInit {
 
-  constructor(private creatorsS: CreatorsService) { }
+  public creatorObs$: Observable<Creators[]>;
 
-  ngOnInit() {
-    this.creatorsS
-    .getCreators()
-    .subscribe({
-        next: (creatorss: Creators[]) => {
-          console.log(creatorss);
-        },
-        error: (e) => {
-          console.error(e)
-        }
-    });
+  constructor(private creatorsS: CreatorsService) {
+    this.creatorObs$ = this.creatorsS.getCreators();
   }
+
+  ngOnInit() {  }
 
 }
