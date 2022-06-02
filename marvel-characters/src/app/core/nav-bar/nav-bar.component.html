@@ -1,10 +1,12 @@
 <div class="nav-bar">
-  <div class="img-logo"></div>
+  <div class="img-logo">
+    <img src="../../../assets/img/logo.png" alt="">
+  </div>
   <div class="list-menu">
     <ul>
-      <li><a href="/home">Home</a></li>
-      <li><a href="/characters">Characters</a></li>
-      <li><a href="/creators">Creators</a></li>
+      <li><a [routerLink]="'/creators'" [routerLinkActive]="'is-active'">Creators</a></li>
+      <li><a [routerLink]="'/characters'" [routerLinkActive]="'is-active'">Characters</a></li>
+      <li><a [routerLink]="'/home'" [routerLinkActive]="'is-active'">Home</a></li>
     </ul>
   </div>
 </div>
