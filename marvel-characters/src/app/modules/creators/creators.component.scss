@@ -1,0 +1,27 @@
+.container-creators {
+  float: left;
+  width: 100%;
+
+  .title-container-creators {
+    float: left;
+    width: 98%;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 15px 15px 50px 15px;
+
+    hr {
+      position: absolute;
+      width: 20%;
+      left: 25px;
+      color: #000;
+      border: 1px solid #000;
+    }
+  }
+
+  .cards {
+    float: left;
+    width: 33%;
+    min-height: 40px;
+    text-align: center;
+  }
+}

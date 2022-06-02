@@ -1,3 +1,11 @@
-<p>
-  creators works!
-</p>
+<div class="container-creators" *ngIf="creatorObs$ | async as creators">
+  <div class="title-container-creators">
+    List of Creators
+    <hr />
+  </div>
+  <div class="cards" *ngFor="let creator of creators">
+    <div class="title">
+      {{creator.firstName}}
+    </div>
+  </div>
+</div>
